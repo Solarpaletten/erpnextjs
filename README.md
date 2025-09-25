@@ -1,3 +1,30 @@
+`````md
+# Dashka Next.js Core Template
+
+Чистое ядро Next.js для быстрого старта продуктовых проектов.
+
+## Возможности
+
+- ✅ Next.js 15 + TypeScript + App Router
+- ✅ API роуты (health check, echo)
+- ✅ Структура под продуктовые модули
+- ✅ ESLint + Prettier + Husky
+- ✅ CI/CD pipeline
+- ✅ Команда и процессы
+
+## Быстрый старт
+
+`````bash
+# Использовать как template в GitHub или клонировать
+git clone <this-repo>
+cd project-name
+
+# Настройка и запуск
+cp .env.example .env.local
+pnpm install
+pnpm dev
+
+
 Next.js Core Files - Ready to Copy
 📁 Структура папок (выполните команды)
 bash# Создаем структуру папок
@@ -782,7 +809,8 @@ yarn dev
 pnpm dev
 # or
 bun dev
-````
+`````
+`````
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 

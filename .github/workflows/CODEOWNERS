@@ -1,0 +1,12 @@
+# Ядро системы
+/src/app/api/*                 @Solarpaletten
+/src/lib/*                     @Solarpaletten
+/src/middleware.ts             @Solarpaletten
+
+# Продуктовые модули  
+/src/app/(products)/translator/*  @Solarpaletten @reviewer
+/src/app/(products)/vat/*         @Solarpaletten @reviewer
+
+# Конфигурация
+/.github/*                     @Solarpaletten
+/package.json                  @Solarpaletten
