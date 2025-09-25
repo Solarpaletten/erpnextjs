@@ -4,31 +4,30 @@ on:
     branches: [ main ]
   push:
     branches: [ main ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v4
-
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'pnpm'
-
+          # Убрать cache: 'pnpm' отсюда!
+      
       - name: Install pnpm
         run: npm install -g pnpm
-
+      
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
-
+      
       - name: Run lint
         run: pnpm lint
-
+      
       - name: Run typecheck
         run: pnpm typecheck
-
+      
       - name: Run build
         run: pnpm build
