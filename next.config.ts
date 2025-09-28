@@ -8,10 +8,8 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    missingSuspenseWithCSRBailout: false,
-  },
-  // Отключить статическую генерацию для проблемных страниц
-  output: 'standalone'
+    appDir: true,
+  }
 };
 
 export default nextConfig;
