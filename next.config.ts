@@ -6,7 +6,12 @@ const nextConfig: NextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: true,
-  }
+  },
+  output: 'standalone',
+  // Отключить генерацию статических страниц
+  trailingSlash: false,
+  generateEtags: false,
+  poweredByHeader: false
 };
 
 export default nextConfig;
