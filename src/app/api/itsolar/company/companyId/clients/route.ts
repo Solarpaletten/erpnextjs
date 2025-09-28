@@ -7,7 +7,7 @@ const prisma = new PrismaClient()
 // ========================== GET ==========================
 export async function GET(
   request: NextRequest,
-  context: { params: Promise<{ companyId: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
     console.log('=== CLIENTS API GET START ===')
@@ -65,7 +65,7 @@ export async function GET(
 // ========================== POST ==========================
 export async function POST(
   request: NextRequest,
-  context: { params: Promise<{ companyId: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
     console.log('=== CLIENTS API POST START ===')

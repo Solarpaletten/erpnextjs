@@ -1,4 +1,4 @@
-// src/app/api/itsolar/account/companies/id/copy/route.ts
+// src/app/api/itsolar/account/companies/[id]/copy/route.ts
 // Исправлено под реальную схему Prisma
 
 import { NextRequest, NextResponse } from 'next/server'
@@ -54,11 +54,11 @@ async function generateUniqueName(originalName: string): Promise<string> {
 
 export async function POST(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
     console.log('=== COPY API START ===')
-    const { id } = await params  // Добавить await
+    const { id } = await context.params  // Добавить await
     const companyId = parseInt(id)  // Изменить с params.id на id
     console.log('Company ID to copy:', companyId)
 

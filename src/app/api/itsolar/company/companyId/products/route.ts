@@ -5,7 +5,7 @@ const prisma = new PrismaClient()
 
 export async function GET(
   request: NextRequest,
-  context: { params: Promise<{ companyId: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
     const { companyId } = await context.params
@@ -32,7 +32,7 @@ export async function GET(
 
 export async function POST(
   request: NextRequest,
-  context: { params: Promise<{ companyId: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
     const { companyId } = await context.params
@@ -44,7 +44,11 @@ export async function POST(
         company_id,
         name: data.name,
         description: data.description,
-        price: data.price
+        price: data.price,
+        // Добавляем обязательные поля из схемы
+        code: data.code || `PROD_${Date.now()}`,
+        unit: data.unit || 'шт',
+        created_by: 1 // ID пользователя
       }
     })
 

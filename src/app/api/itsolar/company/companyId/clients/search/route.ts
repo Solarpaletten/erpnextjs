@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 
 export async function GET(
   request: NextRequest,
-  context: { params: Promise<{ companyId: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
     // Исправлено: берем companyId, а не id

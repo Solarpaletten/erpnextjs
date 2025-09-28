@@ -6,10 +6,10 @@ const prisma = new PrismaClient()
 // PUT - Обновление компании
 export async function PUT(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }  // Promise!
+  context: { params: Promise<any> }  // Promise!
 ) {
   try {
-    const { id } = await params  // await!
+    const { id } = await context.params  // await!
     const companyId = parseInt(id)
 
     const { name, code, description } = await request.json()
@@ -47,10 +47,10 @@ export async function PUT(
 // DELETE - Удаление компании
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
-    const { id } = await params
+    const { id } = await context.params
     const companyId = parseInt(id)
 
     // ДОБАВЬТЕ ЭТИ СТРОКИ:
@@ -79,10 +79,10 @@ export async function DELETE(
 // GET - Получение одной компании (опционально)
 export async function GET(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
-    const { id } = await params
+    const { id } = await context.params
     const companyId = parseInt(id)
 
     const company = await prisma.companies.findUnique({

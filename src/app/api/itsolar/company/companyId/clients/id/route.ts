@@ -6,7 +6,7 @@ const prisma = new PrismaClient()
 
 export async function GET(
   request: NextRequest,
-  context: { params: Promise<{ companyId: string; id: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
     console.log('=== CLIENT GET BY ID START ===')
@@ -70,7 +70,7 @@ export async function GET(
 
 export async function PUT(
   request: NextRequest,
-  context: { params: Promise<{ companyId: string; id: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
     console.log('=== CLIENT UPDATE START ===')
@@ -195,7 +195,7 @@ export async function PUT(
 
 export async function DELETE(
   request: NextRequest,
-  context: { params: Promise<{ companyId: string; id: string }> }
+  context: { params: Promise<any> }
 ) {
   try {
     console.log('=== CLIENT DELETE START ===')
