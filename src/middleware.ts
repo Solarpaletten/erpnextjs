@@ -1,25 +1,37 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server'
+import type { NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
-  const response = NextResponse.next();
+  const token = request.cookies.get('token')?.value
+  const { pathname } = request.nextUrl
 
-  // Базовые security заголовки
-  response.headers.set('X-Frame-Options', 'SAMEORIGIN');
-  response.headers.set('X-Content-Type-Options', 'nosniff');
-  response.headers.set('Referrer-Policy', 'strict-origin-when-cross-origin');
+  // Protected routes - новые пути itsolar
+  const isProtectedRoute = 
+    pathname.startsWith('/itsolar/dashboard') || 
+    pathname.startsWith('/itsolar/account') || 
+    pathname.startsWith('/itsolar/company')
 
-  return response;
+  const isAuthRoute = 
+    pathname.startsWith('/itsolar/auth/login') || 
+    pathname.startsWith('/itsolar/auth/register')
+
+  // Защита приватных страниц
+  if (isProtectedRoute && !token) {
+    return NextResponse.redirect(
+      new URL('/itsolar/auth/login', request.url)
+    )
+  }
+
+  // Переадресация авторизованных с страниц входа
+  if (isAuthRoute && token) {
+    return NextResponse.redirect(
+      new URL('/itsolar/dashboard/account/companies', request.url)
+    )
+  }
+
+  return NextResponse.next()
 }
 
 export const config = {
-  matcher: [
-    /*
-     * Применяем middleware ко всем путям кроме:
-     * - api (API routes)
-     * - _next/static (static files)
-     * - _next/image (image optimization files)
-     * - favicon.ico (favicon file)
-     */
-    '/((?!api|_next/static|_next/image|favicon.ico).*)',
-  ],
-};
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)']
+}
