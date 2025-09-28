@@ -195,7 +195,7 @@ export default function HomePage() {
         <div className="text-center bg-white/80 backdrop-blur-sm rounded-3xl p-12 shadow-2xl border border-white/20">
           <h2 className="text-4xl font-bold text-gray-800 mb-6">Ready to Transform Your Business?</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-            Join the next generation of enterprise resource planning with Solar ERP's 
+            Join the next generation of enterprise resource planning with Solar ERP&apos;s 
             advanced multi-tenant architecture and intuitive user experience.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

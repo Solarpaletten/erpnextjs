@@ -298,7 +298,7 @@ export default function RegisterPage() {
                 <div className="text-xs text-blue-700 space-y-1">
                   <p>• Form is auto-filled for testing</p>
                   <p>• Terms checkbox is pre-checked</p>
-                  <p>• After registration, you'll be redirected to login</p>
+                  <p>• After registration, you&apos;ll be redirected to login</p>
                 </div>
               </div>
             )}
