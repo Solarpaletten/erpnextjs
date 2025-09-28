@@ -1,3 +1,6 @@
+new 
+rm -rf .next
+pnpm run build
 `````md
 # Dashka Next.js Core Template
 
